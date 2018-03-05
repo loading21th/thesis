@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Welcome to learn Go!</title>
+	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="../js/jquery.min.js"></script>
+	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../jwplayer/jwplayer.js"></script>
+    <script>jwplayer.key="4sNBpozdkb2Gv+IYeWyd+CID9tW2NXdJE5GeSg==";//修改为自己的key</script>
+    <script src="../js/class_hls.js"></script>
+</head>
+
+<body>
+	<div class="container">
+       <div class = "row">
+	       <img class="col-sm-1" alt="logo" src="../images/logo.png" />
+           <span>You Are in School:XJTU,Class:Software !</span>
+	   		<ul class="col-sm-1 col-sm-push-10">
+	   		   <li class="e"><a href="./register.html">注册</a></li>
+	   		</ul>
+       </div>
+	</div>
+    <div class="contailner center-block" style="height:360px;width:90%">
+        <div class="row center-block" style="height:100%">
+            <div id="player" class="col-sm-8" style="background-color:lightblue;height:100%;box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+                <span></span>
+                <div id="class-hls" style="height:100%">Loading the player ...</div>
+            </div>
+            <div id="chatroom" class="col-sm-4" align="center" style="background-color:lightgreen;height:100%;box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+                <div id="messageplayer" style="height:60%;width:100%;overflow-x:scroll;overflow-y:scroll"><h3>Received Messages</h3></div>
+                <div style="height:40%">
+                    <textarea style="height:80%;width:100%;"id="message" value="Hello, World!"></textarea>
+                    <button type="button" id="connect_websocket">连接 websocket</button>
+                    <button type="button" id="send_message">发送 message</button>
+                    <button type="button" id="close_websocket">关闭 websocket</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="filearea" class="container" style="height:150px;width:90%;background-color:coral">
+        <div class = "row pre-scrollable col-sm-12"  align="cneter" style="height:75%;width:100%;overflow-x:scroll;overflow-y:scroll;box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+            <ul class = "filelist" id="upul">
+            </ul>
+       </div>
+        <div  class="row" align="cneter">
+            <input id="file_upload" class="col-sm-4" type ="file" name="coursefile" />
+            <input class="col-sm-4" type="submit" onclick="file_upload("no")"    value="上传"/>
+            <input class="col-sm-4" type="submit" onclick="file_upload("yes")"    value="下载"/>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+    jwplayer("class-hls").setup({
+        "file": "D:/download/jwplayer-7.10.4/jwplayer-30s.mp4",//视频文件路径
+    	//"aspectratio": "16:9",//播放器自适应比例
+    	"type":"mp4",//播放文件类型（可选）
+        "height":"100%",
+        "width":"100%",
+    	"title": "围棋-业余",//标题（可选）
+    	"description": "初学者入门",//描述（可选）
+    	"image": "D:/论文相关/页面信息/images/ad3.jpg",//视频封面（可选）
+    	"repeat":"false",//重复播放（留空则不重复播放）
+    	"autostart":"false",//自动播放（留空则不启用自动播放
+    });
+    </script>
+</body>
+</html>

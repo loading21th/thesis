@@ -1,0 +1,14 @@
+
+    #player {
+        position:absolute;
+        background-color:lightgreen;
+    }
+    #chatroom {
+        position:absolute;
+        background-color:lightblue;
+    }
+    #filearea {
+        position:absolute;
+        background-color:coral;
+    }
+
