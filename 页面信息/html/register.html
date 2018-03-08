@@ -6,6 +6,9 @@
 		<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <style type="text/css">
+        body {background-color:#A6FFFF}
+        </style>
 	</head>
 
 	<body background="#FF7F50">
@@ -40,6 +43,12 @@
                             <br />
                             <br />
 		    		        <input type="text" name="" id="user" placeholder="性    别：男/女">
+                            <br />
+                            <br />
+                            <div  class="row" align="cneter">
+                                <input id="file_upload" class="col-sm-4" type ="file" name="用户头像" />
+                                <input class="col-sm-4" type="submit" onclick="file_upload("no")"    value="上传用户头像"/>
+                            </div>
                             <br />
                             <br />
                         </form>

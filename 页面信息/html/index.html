@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8"> 
+   <title>围棋在线教育</title>
+   <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">  
+   <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+   <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <script type="text/javascript" src="../jwplayer/jwplayer.js"></script>
+   <script>jwplayer.key="4sNBpozdkb2Gv+IYeWyd+CID9tW2NXdJE5GeSg==";//修改为自己的key</script>
+        <style type="text/css">
+        body {background-color:#A6FFFF}
+        </style>
+</head>
+<body>
+
+<div class="container">
+    <div class = "row">
+	    <img class="col-sm-1" alt="logo" src="../images/logo.png" />
+			<ul class="col-sm-2 col-sm-push-10">
+			   <li class="col-sm-7"><a href="./studentinfo.html">个人中心</a></li>
+			   <li class="col=sm-5"><a href="./login.html">注销</a></li>
+			</ul>
+    </div>
+</div>
+<br />
+<br />
+<div class="container center-block" style="width:90%">
+   <div class="row">
+        <ul class="nav nav-pills nav-stacked col-sm-3">
+        	<li style="box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444" class="active">
+                <a href="#stage0" data-toggle="tab">业余/入门</a>
+            </li>
+        	<li style="box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444">
+                <a href="#stage1" data-toggle="tab">一级段位</a>
+            </li>
+        	<li style="box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444">
+                <a href="#stage2" data-toggle="tab">二级段位</a>
+            </li>
+        	<li style="box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444">             
+                <a href="#stage3" data-toggle="tab">三级段位</a>
+            </li>
+        	<li style="box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444">
+                <a href="#stage4" data-toggle="tab">四级段位</a>
+            </li>
+        	<li style="box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444">
+                <a href="#stage5" data-toggle="tab">五级段位</a>
+             </li>
+        	<li style="box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444">
+                <a href="#stage6" data-toggle="tab">六级段位</a>
+            </li>
+        	<li style="box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444">
+                <a href="#stage7" data-toggle="tab">七级段位</a>
+            </li>
+        	<li style="box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444">
+                <a href="#stage8" data-toggle="tab">八级段位</a>
+            </li>
+        	<li style="box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444">
+                <a href="#stage9" data-toggle="tab">九级段位</a>
+            </li>
+        </ul>
+        <div class="tab-content container col-sm-9">
+            <div id="stage0" class="tab-pane fade in active">
+                <div class="row  nav nav-tabs" style='background-color:Red'>
+                    <div class="col-sm-4 active" href="#videos0" data-toggle="tab" style="box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444 height:30px">自学视频</div>
+                    <div class="col-sm-4" href="#schools0" data-toggle="tab" style="box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444 height:30px">||课堂教育</div>
+                    <div class="col-sm-4" style="box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444 height:30px"><a href="./chess.html">||围棋游戏</a></div>
+                </div>
+                <div class="row tab-content">
+                    <div class="tab-pane fade" id="schools0">
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="school-info-0-1" class="center-block">
+                                    <img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img>
+                                </div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="school-info-0-2" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="school-info-0-3" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="school-info-0-4" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="school-info-0-5" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="school-info-0-6" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade in active"id="videos0">
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-0-1" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-0-2" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-0-3" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-0-4" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-0-5" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-0-6" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="stage1" class="tab-pane fade">
+                <div class="row  nav nav-tabs" style='background-color:Red'>
+                    <div class="col-sm-4 active" href="#videos1" data-toggle="tab" style="box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444 height:30px">自学视频</div>
+                    <div class="col-sm-4" href="#schools10" data-toggle="tab" style="box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444 height:30px">||课堂教育</div>
+                <div class="col-sm-4" style="box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444 height:30px"><a href="./chess.html">||围棋游戏</a></div>
+                </div>
+                <div class="row tab-content">
+                    <div class="tab-pane fade" id="schools10">
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-1-1" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-1-2" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-1-3" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-1-4" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-1-5" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-1-6" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade in active"id="videos1">
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-1-1" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-1-2" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-1-3" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-1-4" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-1-5" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-1-6" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="stage2" class="tab-pane fade">
+                <div class="row  nav nav-tabs" style='background-color:Red'>
+                    <div class="col-sm-4 active" href="#videos2" data-toggle="tab" style="box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444 height:30px">自学视频</div>
+                    <div class="col-sm-4" href="#schools2" data-toggle="tab" style="box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444 height:30px">||课堂教育</div>
+                <div class="col-sm-4" style="box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444 height:30px"><a href="./chess.html">||围棋游戏</a></div>
+                </div>
+                <div class="row tab-content">
+                    <div class="tab-pane fade" id="schools2">
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-2-1" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-2-2" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-2-3" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-2-4" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-2-5" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-2-6" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <div class="tab-pane fade in active"id="videos2">
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-2-1" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-2-2" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-2-3" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-2-4" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-2-5" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-2-6" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <div id="stage3" class="tab-pane fade">
+                <div class="row  nav nav-tabs" style='background-color:Red'>
+                    <div class="col-sm-4 active" href="#videos3" data-toggle="tab" style="box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444 height:30px">自学视频</div>
+                    <div class="col-sm-4" href="#schools3" data-toggle="tab" style="box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444 height:30px">||课堂教育</div>
+                <div class="col-sm-4" style="box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444 height:30px"><a href="./chess.html">||围棋游戏</a></div>
+                </div>
+                <div class="row tab-content">
+                    <div class="tab-pane fade" id="schools3">
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-3-1" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-3-2" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-3-3" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-3-4" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-3-5" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-3-6" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade in active"id="videos3">
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-3-1" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-3-2" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-3-3" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-3-4" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-3-5" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-3-6" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="stage4" class="tab-pane fade">
+                <div class="row  nav nav-tabs" style='background-color:Red'>
+                    <div class="col-sm-4 active" href="#videos4" data-toggle="tab" style="box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444 height:30px">自学视频</div>
+                    <div class="col-sm-4" href="#schools4" data-toggle="tab" style="box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444 height:30px">||课堂教育</div>
+                <div class="col-sm-4" style="box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444 height:30px"><a href="./chess.html">||围棋游戏</a></div>
+                </div>
+                <div class="row tab-content">
+                    <div class="tab-pane fade" id="schools4">
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-3-1" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-3-2" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-3-3" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-3-4" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-3-5" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-3-6" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade in active"id="videos4">
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-4-1" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-4-2" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-4-3" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-4-4" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-4-5" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-4-6" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="stage5" class="tab-pane fade">
+                <div class="row  nav nav-tabs" style='background-color:Red'>
+                    <div class="col-sm-4 active" href="#videos5" data-toggle="tab" style="box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444 height:30px">自学视频</div>
+                    <div class="col-sm-4" href="#schools5" data-toggle="tab" style="box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444 height:30px">||课堂教育</div>
+                <div class="col-sm-4" style="box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444 height:30px"><a href="./chess.html">||围棋游戏</a></div>
+                </div>
+                <div class="row tab-content">
+                    <div class="tab-pane fade" id="schools5">
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-3-1" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-3-2" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-3-3" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-3-4" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-3-5" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-3-6" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade in active"id="videos5">
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-5-1" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-5-2" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-5-3" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-5-4" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-5-5" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-5-6" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="stage6" class="tab-pane fade">
+                <div class="row  nav nav-tabs" style='background-color:Red'>
+                    <div class="col-sm-4 active" href="#videos6" data-toggle="tab" style="box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444 height:30px">自学视频</div>
+                    <div class="col-sm-4" href="#schools6" data-toggle="tab" style="box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444 height:30px">||课堂教育</div>
+                <div class="col-sm-4" style="box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444 height:30px"><a href="./chess.html">||围棋游戏</a></div>
+                </div>
+                <div class="row tab-content">
+                    <div class="tab-pane fade" id="schools6">
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-6-1" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-6-2" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-6-3" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-6-4" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-6-5" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-6-6" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade in active"id="videos6">
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-6-1" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-6-2" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-6-3" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-6-4" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-6-5" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-6-6" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="stage7" class="tab-pane fade">
+                <div class="row  nav nav-tabs" style='background-color:Red'>
+                    <div class="col-sm-4 active" href="#videos7" data-toggle="tab" style="box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444 height:30px">自学视频</div>
+                    <div class="col-sm-4" href="#schools7" data-toggle="tab" style="box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444 height:30px">||课堂教育</div>
+                <div class="col-sm-4" style="box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444 height:30px"><a href="./chess.html">||围棋游戏</a></div>
+                </div>
+                <div class="row tab-content">
+                    <div class="tab-pane fade" id="schools7">
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-7-1" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-7-2" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-7-3" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-7-4" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-7-5" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-7-6" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade in active"id="videos7">
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-7-1" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-7-2" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-7-3" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-7-4" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-7-5" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-7-6" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="stage8" class="tab-pane fade">
+                <div class="row  nav nav-tabs" style='background-color:Red'>
+                    <div class="col-sm-4 active" href="#videos8" data-toggle="tab" style="box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444 height:30px">自学视频</div>
+                    <div class="col-sm-4" href="#schools8" data-toggle="tab" style="box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444 height:30px">||课堂教育</div>
+                <div class="col-sm-4" style="box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444 height:30px"><a href="./chess.html">||围棋游戏</a></div>
+                </div>
+                <div class="row tab-content">
+                    <div class="tab-pane fade" id="schools8">
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-8-1" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-8-2" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-8-3" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-8-4" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-8-5" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-8-6" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade in active"id="videos8">
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-8-1" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-8-2" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-8-3" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-8-4" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-8-5" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-8-6" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="stage9" class="tab-pane fade">
+                <div class="row  nav nav-tabs" style='background-color:Red'>
+                    <div class="col-sm-4 active" href="#videos9" data-toggle="tab" style="box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444 height:30px">自学视频</div>
+                    <div class="col-sm-4" href="#schools9" data-toggle="tab" style="box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444 height:30px">||课堂教育</div>
+                <div class="col-sm-4" style="box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444 height:30px"><a href="./chess.html">||围棋游戏</a></div>
+                </div>
+                <div class="row tab-content">
+                    <div class="tab-pane fade" id="schools9">
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-9-1" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-9-2" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-9-3" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-9-4" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-9-5" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="schoolinfo-9-6" class="center-block"><img style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img></div>
+                                <div class="center-block">学校简介</div>
+                                <a href="schoolabout.html">查看学校</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade in active"id="videos9">
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-9-1" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-9-2" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-9-3" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-9-4" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-9-5" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="border:1;padding-left:10px;padding-right:10px;margin-top:10px;margin-bottom:10px">
+                            <div >
+                                <div id="freevideo-9-6" class="center-block">Loding jwplayer</div>
+                                <div class="center-block">视频简介</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+   </div>
+</div>
+<script src="../js/videos.js"></script>
+
+</body>
+</html>

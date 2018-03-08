@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title>登录</title>
+		<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <style type="text/css">
+        body {background-color:#A6FFFF}
+        </style>
+	</head>
+
+	<body color="#A6FFFF">
+		<div class="container">
+            <div class = "row">
+			    <img class="col-sm-1" alt="logo" src="../images/logo.png" />
+					<ul class="col-sm-2 col-sm-offset-9">
+					   <li class="col-sm-6"><a href="./index.html">首页</a></li>
+					   <li class="col-sm-6"><a href="./login.html">注销</a></li>
+					</ul>
+            </div>
+		</div>
+
+        <br />
+
+		<div class="container">
+			<div class="row">
+                <div class="col-sm-2" style="border-style:solid;height:180px;">
+                    <img  style="height:90%;width:90%;padding-top:10%" src="../images/school.jpg"></img>
+                </div>
+                <div  class="col-sm-10" align="cneter" style="border-style:solid;height:180px;padding-top:10px">
+                    <h3>钱包</h3>
+                    <div  class="col-sm-10 col-sm-offset-1" >
+                        <label>账户余额：</label>
+                        <input  type ="text"  value="100"/>
+                        <label>棋子</label>
+                    </div>
+                    <br />
+                    <br />
+                    <button class="col-sm-4 col-sm-offset-1" data-toggle="modal" data-target="#chongzhi"> 充值</button>
+                    <button class="col-sm-4 col-sm-offset-2" data-toggle="modal" data-target="#tixian">提现</button>
+                </div>
+			</div>
+		</div>
+
+        <br />
+        
+        <h2>基本信息</h2>
+		<div class="container">
+			<div class="row">
+                <div class="col-sm-12"  style="height:240px;border-style:solid;padding-top:10px;padding-bottom:10px">
+                    <div class="container col-sm-12">
+                        <input class="col-sm-4 col-sm-offset-1" type ="text"  value="用户身份：学校"/>
+                        <button class="col-sm-4 col-sm-offset-2" data-toggle="modal" data-target="#createschool">继续创办学校</button>
+		    		    <form>
+		    		        <input class="col-sm-10 col-sm-offset-1" type="text"   placeholder="用户名"/>
+		    		        <input class="col-sm-10 col-sm-offset-1" type="text"   placeholder="邮    箱"/>
+		    		        <input class="col-sm-10 col-sm-offset-1" type="text"   placeholder="出生年月: 格式2000-01-01"/>
+		    		        <input class="col-sm-10 col-sm-offset-1" type="text"   placeholder="性    别：男/女"/>
+                            <button  class="col-sm-4 col-sm-offset-1">用户头像</button>
+                            <input class="col-sm-4 col-sm-offset-2" type="submit"     value="上传"/>
+		            		<input class="col-sm-4 col-sm-offset-4" type="submit"  value="提 交" />
+                        </form>
+                    </div>
+		    	</div>
+			</div>
+		</div>
+
+
+        <br />
+        <h2>相关课程</h2>
+        <br />
+		<div class="container">
+			<div class="row">
+                <div class="col-sm-12" style="border-style:solid;margin-top:10px;margin-bottom:10px">
+                    <h3>课程：初级入门</h3>
+                    <br />
+                    <div class="cols-sm-4 col-sm-offset-1">
+                        围棋礼仪
+                        <br />
+                        开课时间：9：00 - 11：00
+                        <br />
+                        授课老师：于老师
+                        <br />
+                        <button>更改</button>
+                        <button>删除</button>
+                    </div>
+                </div>
+                <div class="col-sm-12" style="border-style:solid;margin-top:10px;margin-bottom:10px">
+                    <h3>课程：一级段位选手</h3>
+                    <br />
+                    <div class="cols-sm-4 col-sm-offset-1">
+                        围棋招式
+                        <br />
+                        开课时间：15：00 - 17：00
+                        <br />
+                        授课老师：赵老师
+                        <br />
+                        <button>更改</button>
+                        <button>删除</button>
+                    </div>
+                </div>
+                <button class="col-sm-4 col-sm-offset-4" data-toggle="modal" data-target="#createnewclass">开设新课程</button>
+			</div>
+		</div>
+
+        <!--支付模态框-->
+        <div id="zhifu" class="modal fade in" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <a class="close" data-dismiss="modal">×</a>
+                        <h3 class="modal-title">支付页面</h3>
+                    </div>
+                    <div class="modal-body">
+                        <label>向用户：围棋教育系统</label>
+                        <label>支付</label>
+                        <input  type ="text"  value="100"/>
+                        <label>棋子</label>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="schoolinfo.html" class="btn btn-success">确认</a>
+                        <a href="schoolinfo.html" class="btn" data-dismiss="modal">取消</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--充值模态框-->
+        <div id="chongzhi" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <a class="close" data-dismiss="modal">×</a>
+                        <h3 class="modal-title">充值页面</h3>
+                    </div>
+                    <div class="modal-body">
+                        <label>充值</label>
+                        <input  type ="text"  value="100"/>
+                        <label>棋子</label>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="schoolinfo.html" class="btn btn-success">确认</a>
+                        <a href="schoolinfo.html" class="btn" data-dismiss="modal">取消</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--提现模态框-->
+        <div id="tixian" class="modal fade in"  role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <a class="close" data-dismiss="modal">×</a>
+                        <h3 class="modal-title">提现页面</h3>
+                    </div>
+                    <div class="modal-body">
+                        <label>提现</label>
+                        <input  type ="text"  value="100"/>
+                        <label>棋子</label>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="schoolinfo.html" class="btn btn-success">确认</a>
+                        <a href="schoolinfo.html" class="btn" data-dismiss="modal">取消</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!--升级模态框-->
+        <div id="update" class="modal fade in"  role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <a class="close" data-dismiss="modal">×</a>
+                        <h3 class="modal-title">用户升级页面</h3>
+                    </div>
+                    <div class="modal-body container">
+                        <div class="col-sm-10 col-sm-offset-1">
+                            <div class="col-sm-2">资历描述:</div>
+                            <div class="col-sm-10 ">
+                                <textarea  rows="10" cols="30">描述您的围棋教学经历</textarea>
+                            </div>
+                            <div class="col-sm-2">段位证书：</div>
+                            <div class="col-sm-10 ">
+                                <img src="../images/upload.jpg" style="height:40px;width:40px">
+                            </div>
+                            <div class="col-sm-2">教学证明</div>
+                            <div class="col-sm-10">
+                                <img src="../images/upload.jpg" style="height:40px;width:40px">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="schoolinfo.html" class="btn btn-success">确认</a>
+                        <a href="schoolinfo.html" class="btn" data-dismiss="modal">取消</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--创建学校模态框-->
+        <div id="createschool" class="modal fade in"  role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <a class="close" data-dismiss="modal">×</a>
+                        <h3 class="modal-title">创建学校页面</h3>
+                    </div>
+                    <div class="modal-body container">
+                        <div class="col-sm-10 col-sm-offset-1">
+                            <div class="col-sm-2">学校名称:</div>
+                            <div class="col-sm-10 ">
+                                <input placeholder="学校全称"></input>
+                            </div>
+                            <div class="col-sm-2">学校简写:</div>
+                            <div class="col-sm-10 ">
+                                <input placeholder="学校英文缩写"></input>
+                            </div>
+                            <div class="col-sm-2">学校所属段位:</div>
+                            <div class="col-sm-10 ">
+                                <input placeholder="初级入门"></input>
+                            </div>
+                            <div class="col-sm-2">教学宗旨:</div>
+                            <div class="col-sm-10 ">
+                                <textarea  rows="10" cols="30">描述教学宗旨</textarea>
+                            </div>
+                            <div class="col-sm-2">学校描述:</div>
+                            <div class="col-sm-10 ">
+                                <textarea  rows="10" cols="30">介绍您的学校</textarea>
+                            </div>
+                            <div class="col-sm-2">学校Logo：</div>
+                            <div class="col-sm-10 ">
+                                <img src="../images/upload.jpg" style="height:40px;width:40px">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="schoolinfo.html" class="btn btn-success">确认</a>
+                        <a href="schoolinfo.html" class="btn" data-dismiss="modal">取消</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!--开设新课模态框-->
+        <div id="createnewclass" class="modal fade in"  role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <a class="close" data-dismiss="modal">×</a>
+                        <h3 class="modal-title">创建课程页面</h3>
+                    </div>
+                    <div class="modal-body container">
+                        <div class="col-sm-10 col-sm-offset-1">
+                            <div class="col-sm-2">课程名称:</div>
+                            <div class="col-sm-10 ">
+                                <input placeholder="课程全称"></input>
+                            </div>
+                            <div class="col-sm-2">课程简写:</div>
+                            <div class="col-sm-10 ">
+                                <input placeholder="课程英文缩写"></input>
+                            </div>
+                            <div class="col-sm-2">课程所属段位:</div>
+                            <div class="col-sm-10 ">
+                                <input placeholder="初级入门"></input>
+                            </div>
+                            <div class="col-sm-2">任职教师:</div>
+                            <div class="col-sm-10 ">
+                                <input placeholder="xxx老师"></input>
+                            </div>
+                            <div class="col-sm-2">课程收费:</div>
+                            <div class="col-sm-10 ">
+                                <input placeholder="100"></input>
+                                <label> 棋子/位学生</label>
+                            </div>
+                            <div class="col-sm-2">课程描述:</div>
+                            <div class="col-sm-10 ">
+                                <textarea  rows="10" cols="30">介绍您的课程</textarea>
+                            </div>
+                            <div class="col-sm-2">课程Logo：</div>
+                            <div class="col-sm-10 ">
+                                <img src="../images/upload.jpg" style="height:40px;width:40px">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="schoolinfo.html" class="btn btn-success">确认</a>
+                        <a href="schoolinfo.html" class="btn" data-dismiss="modal">取消</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</body>
+
+</html>

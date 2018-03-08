@@ -1,0 +1,27 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="apple-mobile-web-app-capable" content="yes" /> 
+<meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, user-scalable=yes"/>
+<title>棋牌游戏-http://www.zuidaima.com/-最代码</title>
+<script src="../js/chess.js"></script>
+<script>
+function List(){
+	var names=[["五子棋","四子棋","围棋","翻转棋"],	["gobang","four","gogame","turnover"]],sb=[];
+	for(var i=0;i<names[0].length;i++){
+		sb.push("<div style=\"height:64px\"><input name=\"g\" id=\"g_"+i+"\" type=\"radio\" onclick=\"new Chess().board('"+names[1][i]+"',document.body.clientWidth*0.9,document.body.clientHeight,document.getElementById('C'))\"><label for=\"g_"+i+"\" style=\"font-size:24px\">"+names[0][i]+"</label></div>");
+	}
+	document.write(sb.join(""));
+}
+</script>
+</head>
+<body style=" background-color:#C89C5C">
+<script>document.write(head_t);</script>
+<div id="C" align="center" style="float:left;height:90%"></div>
+<div style="float:right;width:100px"><script>List();</script>背景：<select onChange="document.body.style.background=this.value;" style="font-size:24px"><option value="#C89C5C">松木<option value="#883400">檀木<option value="#FFF">白色</select></div>
+<div style="clear:both"></div>
+<script>document.write(foot_t);Display();</script>
+</body>
+</html>
+
+
