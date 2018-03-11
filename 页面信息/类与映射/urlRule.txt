@@ -1,0 +1,28 @@
+LearningGo/
+  login.html                            LoginView           get
+                                                            post     Ustudent,Uheadmaster               /查询
+  register.html                         ReginsterView       get
+                                                            post     Ustudent,Uheadmaster               /查询   
+  index.html                            IndexView           get      
+   | videos/{num}/                      VideosView          get      videos                             /查询
+   | campus/{num}/                      CampusView          get      campus                             /查询
+  
+  classes/{schoolname}/                 SchoolView          get      campus,class
+   | buyclass/{schoolname}/{classname}  BuyClassView        get      Ustudent,studens_classroom         /查，改，增           
+  
+  hlsroom/{schoolname}/{classname}      HlsRoomView         get      classroom,homework                 /查rtmp
+   | download/{schoolname}/{classname}/file DownloadView    get      
+
+  studentinfo/                          StudentView         get      Ustudent,classroom                 /查           
+   | delclass/{classname}               DelClassView*       get      classroom_students                 /删
+   | wallet/{sum}/                      WalletView          get      Ustudent                           /改
+   | updateinfo/                        UpdateinfoView      post     Ustudent                           /改
+   | upgrade/                           UpgradeView         post     Ustudent,Uheadmaster               /删，增
+   
+  headmasterinfo/                       HeadmasterView      get
+   | delclass/{schoolname}/{classname}  DelClassView*       get      homework,classroom                 /删
+   | updateclass/{schoolname}/{classname}updateClassView    get      classroom                          /改
+   | addclass/{schoolname}/{classname}  AddClassView        post     classroom,headmaster_classes       /改
+   | wallet/{sum}/                      WalletView          get      Ustudent                           /改
+   | updateinfo/                        UpdateinfoView      post     Ustudent                           /改
+   | addcampus/                         AddCampus           post     campus                             /增

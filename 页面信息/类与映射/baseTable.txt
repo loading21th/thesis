@@ -1,0 +1,90 @@
+class Ustudentinfo(models.Model):
+    uname = models.CharField(maxlength=40)
+    upasswd = models.CharField(maxlength=40)
+    uemail = models.EmailField(maxlength=40)
+    udate = models.DateField(maxlength=40)
+    uimage = models.ImageField()
+    money = models.IntegerField()
+    usex = models.CharField(maxlength=40)
+
+
+
+class Uheadmasterinfo(userinfo):
+    uGo_credential = models.ImageField()
+    uTeach_credential = models.ImageField() "办校证明"
+    udescripition = models.TextField() "办学资历描述"
+
+class campus(models.Model):
+    name = models.CharField(maxlength=40)
+    abbreviation = models.CharField(maxlength=10) "学校简称"
+    stage = models.CharField(maxlength=40)
+    logo = models.ImageField()
+    bio = models.TextField()    "学校简介"
+    pupose = models.TextField() "教学宗旨"
+    headmaster = ForienKey(Uheadmaster)
+
+class classroom(models.Model):
+    name = models.CharField(maxlength=40)
+    abbreviation = models.CharField(maxlength=10) "课堂简称"
+    teacher = models.CharField(maxlength=40) "课堂简称"
+    stage = models.IntergerField()
+    logo = models.ImageField()
+    bio = models.TextField()    "课堂简介"
+    time = models.TextField() "开课时间"
+    price = models.IntegerField()
+    rtmpaddr = models.CharField(maxlength=40)
+    campus = ForienKey(campus)
+
+class students_classes(models.Model):
+    student = ForienKey(Ustudentinfo)
+    clasroom = ForienKey(classroom)
+
+
+class headmaster_classes(models.Model):
+    headmaster = ForienKey(Uheadmaster)
+    clasroom = ForienKey(classroom)
+
+class homework(models.Model):
+    clasroom = ForienKey(classroom)
+    homework = models.ImageField(upload_to=)
+
+class videos(models.Model):
+    stage = models.IntergerField()
+    
+    headmaster = ForienKey(Uheadmaster)
+    clasroom = ForienKey(classroom)
+    
+class RedisHelper:
+    def __init__(self,channel):
+        self.channel = channel
+        self.__conn = redis.Redis(host='192.168.15.12')
+        self.pub = self.__conn.pubsub()
+        self.pub.subscribe(self.channel)
+
+    def publishi(self,msg):
+        self.__conn.publish(self.channel,msg)
+
+    def unsubscribe(self):
+        self.pub.unsubscribe()
+
+
+    def subscribe(self,websocket):
+        logger = logging.getLogger('django')
+        logger.debug('*****'+str(os.getpid())+' : '+str(threading.currentThread())+' : i am the new thread')
+        count = 0
+        try:
+            for item in self.pub.listen():
+                if item['type'] == 'message':
+                    count = count +1
+                    logger.debug('*****'+str(os.getpid())+' : '+str(threading.currentThread())+' :recive message: '+str(item['data']))
+                    websocket.send(item['data'])
+        finally:
+            logger.debug('*****'+str(os.getpid())+' : '+str(threading.currentThread())+' : unsubscribe')
+            self.unsubscribe()
+
+    @postfork
+    def writeback(self,websocket):
+        logger = logging.getLogger('django')
+        logger.debug('*****'+str(os.getpid())+' : '+str(threading.currentThread())+' : ready to start a new thread')
+        th1 = threading.Thread(target=self.subscribe,args=(websocket,))
+        th1.start()
