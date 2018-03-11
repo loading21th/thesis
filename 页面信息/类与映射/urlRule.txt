@@ -1,28 +1,58 @@
 LearningGo/
   login.html                            LoginView           get
-                                                            post     Ustudent,Uheadmaster               /查询
+                                                            post     Ustudent,UTeacher               /查询
   register.html                         ReginsterView       get
-                                                            post     Ustudent,Uheadmaster               /查询   
+                                                            post     Ustudent,UTeacher               /查询   
   index.html                            IndexView           get      
    | videos/{num}/                      VideosView          get      videos                             /查询
-   | campus/{num}/                      CampusView          get      campus                             /查询
+   | campus/{num}/                      CampusesView          get      campus                             /查询
   
-  classes/{schoolname}/                 SchoolView          get      campus,class
+  classes/{schoolname/                  CampusView          get      campus,class
    | buyclass/{schoolname}/{classname}  BuyClassView        get      Ustudent,studens_classroom         /查，改，增           
   
   hlsroom/{schoolname}/{classname}      HlsRoomView         get      classroom,homework                 /查rtmp
-   | download/{schoolname}/{classname}/file DownloadView    get      
+   |                                    HomeworkUpView      post     homework   
+   | download/{schoolname}/{classname}/file CourseWareDownView       get      
+   
 
   studentinfo/                          StudentView         get      Ustudent,classroom                 /查           
    | delclass/{classname}               DelClassView*       get      classroom_students                 /删
    | wallet/{sum}/                      WalletView          get      Ustudent                           /改
+   | buyupgrade/                        BuyUpgradeView       get      Ustudent,Uteacher                  /增,删           
    | updateinfo/                        UpdateinfoView      post     Ustudent                           /改
-   | upgrade/                           UpgradeView         post     Ustudent,Uheadmaster               /删，增
+   | upgrade/                           UpgradeView         post     Ustudent,UTeacher               /删，增
    
-  headmasterinfo/                       HeadmasterView      get
-   | delclass/{schoolname}/{classname}  DelClassView*       get      homework,classroom                 /删
+  Teacherinfo/                          TeacherView      get
+   | delclass/{schoolname}/{classname}  Tea_DelClassView*       get      homework,classroom                 /删
    | updateclass/{schoolname}/{classname}updateClassView    get      classroom                          /改
-   | addclass/{schoolname}/{classname}  AddClassView        post     classroom,headmaster_classes       /改
+   | buycreatecampus/                   BuyCreateCampus     get      Uteacher                           /改       
+   | addclass/{schoolname}/{classname}  AddClassView        post     classroom,Teacher_classes       /改
    | wallet/{sum}/                      WalletView          get      Ustudent                           /改
    | updateinfo/                        UpdateinfoView      post     Ustudent                           /改
+   | buycreateclass/                    BuyCreateClass      get      campus                           /改       
    | addcampus/                         AddCampus           post     campus                             /增
+
+LoginView               verfy_info                              1
+RegisterView            add_Studentinfo                         1
+IndexView                                                       2
+VideosView              find_Videos(num)                        2
+CampusesView            findCampus(num)                         2
+SchoolView      
+BuyClassView            add_Class                           4
+HlsRoomView             getRTMPaddr(schoolname,classname)       2
+                        handleWebsocket()                       2
+HomeworkUpView          getFiles()                              2
+CoursewareDownView                                              2
+StudentView                                                     1
+DelClassView            delete_Class,delete_Classes     4
+WalletView              update_money()                          1
+BuyUpgradeView           update_Student()                       3
+UpdateinfoView          update_info()                           1
+UpgradeView             remove_Student_add_Tea()                    3
+TeacherView                                                     1
+Tea_DelClassView        delete class,delete_Campus_Class,delete_teacher_class,delete_student_class           4
+UpdateClassView         Update_Class                            4
+BuyCreateClassView      update_campus                           4
+AddClassView            add_Campus_Class,add_Class,update_campus   4
+BuyCreateSchoolView     update_teacher                          3
+AddCampus               add_Campus,add_Tea_Campus,update_teacher3

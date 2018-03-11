@@ -1,59 +1,86 @@
-class Ustudentinfo(models.Model):
-    uname = models.CharField(maxlength=40)
-    upasswd = models.CharField(maxlength=40)
-    uemail = models.EmailField(maxlength=40)
-    udate = models.DateField(maxlength=40)
-    uimage = models.ImageField()
-    money = models.IntegerField()
-    usex = models.CharField(maxlength=40)
+import os
+from django.db import  models
+
+AppPath =  os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+def get_image_path(instance,filename):
+    file_path = os.path.join(AppPath,'image',instance.name,filename)
+    return file_path
+
+def get_upfile_path(instance,filename):
+    file_path = os.path.join(AppPath,'uploadfile',instance.schoolname,instance.classname,filename)
+    return file_path
+
+def get_video_path(instance,filename):
+    file_path = os.path.join(AppPath,'goTemplates','videos',filename)
+    return file_path
+
+class Userinfo(models.Model):
+    name = models.CharField(max_length=40)
+    upasswd = models.CharField(max_length=40)
+    uemail = models.EmailField(max_length=40)
+    ubirth = models.DateField(max_length=40)
+    uimage = models.ImageField(upload_to=get_image_path)
+    umoney = models.IntegerField()
+    usex = models.CharField(max_length=40)
 
 
+class UStudentinfo(Userinfo):
+    can_update = modles.BooleanField()
 
-class Uheadmasterinfo(userinfo):
-    uGo_credential = models.ImageField()
-    uTeach_credential = models.ImageField() "办校证明"
-    udescripition = models.TextField() "办学资历描述"
+class Uteacherinfo(Userinfo):
+    uGo_credential = models.ImageField(upload_to=get_image_path)
+    uTeach_credential = models.ImageField(upload_to=get_image_path) 
+    udescripition = models.TextField() 
+    can_createschool = modles.BooleanField() 
 
 class campus(models.Model):
-    name = models.CharField(maxlength=40)
-    abbreviation = models.CharField(maxlength=10) "学校简称"
-    stage = models.CharField(maxlength=40)
-    logo = models.ImageField()
-    bio = models.TextField()    "学校简介"
-    pupose = models.TextField() "教学宗旨"
-    headmaster = ForienKey(Uheadmaster)
+    name = models.CharField(max_length=40)
+    abbreviation = models.CharField(max_length=10) 
+    stage = models.CharField(max_length=40)
+    logo = models.ImageField(upload_to=get_image_path)
+    bio = models.TextField()    
+    pupose = models.TextField() 
+    teacher = models.ForeignKey('Uteacherinfo')
+    can_createclass = modles.BooleanField() 
 
 class classroom(models.Model):
-    name = models.CharField(maxlength=40)
-    abbreviation = models.CharField(maxlength=10) "课堂简称"
-    teacher = models.CharField(maxlength=40) "课堂简称"
-    stage = models.IntergerField()
-    logo = models.ImageField()
-    bio = models.TextField()    "课堂简介"
-    time = models.TextField() "开课时间"
+    name = models.CharField(max_length=40)
+    abbreviation = models.CharField(max_length=10) 
+    teacher = models.CharField(max_length=40) 
+    stage = models.IntegerField()
+    logo = models.ImageField(upload_to=get_image_path)
+    bio = models.TextField()    
+    time = models.TextField() 
     price = models.IntegerField()
-    rtmpaddr = models.CharField(maxlength=40)
-    campus = ForienKey(campus)
+    rtmpaddr = models.CharField(max_length=40)
+    campus = models.ForeignKey('campus')
 
 class students_classes(models.Model):
-    student = ForienKey(Ustudentinfo)
-    clasroom = ForienKey(classroom)
+    student = models.ForeignKey('Userinfo')
+    classroom = models.ForeignKey('classroom')
 
 
-class headmaster_classes(models.Model):
-    headmaster = ForienKey(Uheadmaster)
-    clasroom = ForienKey(classroom)
+class teacher_classes(models.Model):
+    teacher = models.ForeignKey('Uteacherinfo')
+    classroom = models.ForeignKey('classroom')
 
 class homework(models.Model):
-    clasroom = ForienKey(classroom)
-    homework = models.ImageField(upload_to=)
+    classroom = models.ForeignKey('classroom')
+    homework = models.FileField(upload_to=get_upfile_path)
 
 class videos(models.Model):
-    stage = models.IntergerField()
+    stage = models.IntegerField()
+    name = models.CharField(max_length=40)
+    logo = models.ImageField(upload_to=get_image_path)
+    addr = models.FileField(upload_to=get_video_path)
     
-    headmaster = ForienKey(Uheadmaster)
-    clasroom = ForienKey(classroom)
-    
+class BuyBaseView(View): 
+    def pay(fromid,toid,moneysum):
+        fromid -= moneysum
+        toid += moneysum
+        return
+
 class RedisHelper:
     def __init__(self,channel):
         self.channel = channel
