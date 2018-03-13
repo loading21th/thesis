@@ -7,12 +7,12 @@ LearningGo/
    | videos/{num}/                      VideosView          get      videos                             /查询
    | campus/{num}/                      CampusesView          get      campus                             /查询
   
-  classes/{schoolname/                  CampusView          get      campus,class
-   | buyclass/{schoolname}/{classname}  BuyClassView        get      Ustudent,studens_classroom         /查，改，增           
+  classes/{campusname/                  CampusView          get      campus,class
+   | buyclass/{campusname}/{classname}  BuyClassView        get      Ustudent,studens_classroom         /查，改，增           
   
-  hlsroom/{schoolname}/{classname}      HlsRoomView         get      classroom,homework                 /查rtmp
+  hlsroom/{campusname}/{classname}      HlsRoomView         get      classroom,homework                 /查rtmp
    |                                    HomeworkUpView      post     homework   
-   | download/{schoolname}/{classname}/file CourseWareDownView       get      
+   | download/{campusname}/{classname}/file CourseWareDownView       get      
    
 
   studentinfo/                          StudentView         get      Ustudent,classroom                 /查           
@@ -23,36 +23,63 @@ LearningGo/
    | upgrade/                           UpgradeView         post     Ustudent,UTeacher               /删，增
    
   Teacherinfo/                          TeacherView      get
-   | delclass/{schoolname}/{classname}  Tea_DelClassView*       get      homework,classroom                 /删
-   | updateclass/{schoolname}/{classname}updateClassView    get      classroom                          /改
+   | delclass/{campusname}/{classname}  Tea_DelClassView*       get      homework,classroom                 /删
+   | updateclass/{campusname}/{classname}updateClassView    get      classroom                          /改
    | buycreatecampus/                   BuyCreateCampus     get      Uteacher                           /改       
-   | addclass/{schoolname}/{classname}  AddClassView        post     classroom,Teacher_classes       /改
+   | addclass/{campusname}/{classname}  AddClassView        post     classroom,Teacher_classes       /改
    | wallet/{sum}/                      WalletView          get      Ustudent                           /改
    | updateinfo/                        UpdateinfoView      post     Ustudent                           /改
    | buycreateclass/                    BuyCreateClass      get      campus                           /改       
    | addcampus/                         AddCampus           post     campus                             /增
 
-LoginView               verfy_info                              1
-RegisterView            add_Studentinfo                         1
-IndexView                                                       2
-VideosView              find_Videos(num)                        2
-CampusesView            findCampus(num)                         2
-SchoolView      
-BuyClassView            add_Class                           4
-HlsRoomView             getRTMPaddr(schoolname,classname)       2
-                        handleWebsocket()                       2
-HomeworkUpView          getFiles()                              2
-CoursewareDownView                                              2
-StudentView                                                     1
-DelClassView            delete_Class,delete_Classes     4
-WalletView              update_money()                          1
-BuyUpgradeView           update_Student()                       3
-UpdateinfoView          update_info()                           1
-UpgradeView             remove_Student_add_Tea()                    3
-TeacherView                                                     1
-Tea_DelClassView        delete class,delete_Campus_Class,delete_teacher_class,delete_student_class           4
-UpdateClassView         Update_Class                            4
-BuyCreateClassView      update_campus                           4
-AddClassView            add_Campus_Class,add_Class,update_campus   4
-BuyCreateSchoolView     update_teacher                          3
-AddCampus               add_Campus,add_Tea_Campus,update_teacher3
+LoginView               verfy_Info                                                              1
+RegisterView            add_Studentinfo                                                         1
+IndexView                                                                                       2
+FindVideosView              find_Videos(num)                                                        2
+FindCampusesView            find_Campus(num)                                                        2
+CampusView      
+BuyClassView            add_Students_Classes                                                    4
+HlsRoomView             find_RTMPaddr(campusname,classname)                                     2
+                        handleWebsocket()                                                       2
+HomeworkUpView          add_Homework()                                                          2
+CoursewareDownView                                                                              2
+StudentView             find_baseinfo(),find_students_classes()                                 1
+DelClassView            delete_Students_Classes                                                 4
+WalletView              update_Money()                                                          1
+BuyUpgradeView          update_can_upgrade()                                                    3
+UpdateinfoView          update_Info()                                                           1
+UpgradeView             delete_Student;add_Teacher()                                            3
+TeacherView             find_baseinfo(),find_students_classes(),find_campus().find_class        1
+TeacherDelClassView        delete_class,delete_teachers_classes,delete_students_classes            4
+UpdateClassView         update_Class                                                            4
+BuyCreateClassView      update_can_createclass()                                                4
+AddClassView            add_Class,update_can_createclass()                                      4
+BuyCreateCampusView     update_can_createcampus                                                 3
+AddCampus               add_Campus,add_Campus,update_can_createcampus                           3
+
+
+
+url(r’^LearingGo/register.html’,RigsterView.RegisterView.as_view())
+url(r’^LearingGo/login.html’,LoginView.LoginView.as_view())
+url(r’^LearingGo/index.html’,IndexView.IndexView.as_view())
+url(r’^LearingGo/index/videos/(?P<stage>\d+)’,FindVideosView.FindVideosView.as_view())
+url(r’^LearingGo/index/campuses/(?P<stage>\d+)’,FindCampusesView.FindCampusesView.as_view())
+url(r’^LearingGo/campus/(?P<campus_name>.*)’,CampusView.CampusView.as_view())
+url(r’^LearingGo/campus/buyclass/(?P<campus_name>.*)/(?P<class_name>)/’,BuyClassView.BuyClassView.as_view())
+url(r’^LearingGo/hlsroom/(?P<campus_name>.*)/(?P<class_name>)/’,HlsRoomView.HlsRoomView.as_view())
+url(r’^LearingGo/hlsroom/homework_upload/(?P<campus_name>.*)/(?P<class_name>)/’,HomeworkUpView.HomeworkUpView.as_view())
+url(r’^LearingGo/hlsroom/courseware_download/(?P<campus_name>.*)/(?P<class_name>)/’,CoursewareDownView.CoursewareDownView.as_view())
+url(r’^LearingGo/userinfo/student’,StudentView.StudentView.as_view())
+url(r’^LearingGo/userinfo/wallet’,WalletView.WalletView.as_view())
+url(r’^LearingGo/userinfo/updateinfo’,UpdateinfoView.UpdateinfoView.as_view())
+url(r’^LearingGo/userinfo/buyupgrade’,BuyUpgradeView.BuyUpgradeView.as_view())
+url(r’^LearingGo/userinfo/upgradeinfo’,UpgradeinfoView.UpgradeinfoView.as_view())
+url(r’^LearingGo/userinfo/delclass/(?P<class_room>)’,DelClassView.DelClassView.as_view())
+url(r’^LearingGo/userinfo/teacher’,TeacherView.TeacherView.as_view())
+url(r’^LearingGo/userinfo/buycreatecampus’,BuyCreateCampusView.BuyCreateCampusView.as_view())
+url(r’^LearingGo/userinfo/addcampus’,AddCampusView.AddCampusView.as_view())
+url(r’^LearingGo/userinfo/updateclass/(?P<campus_name>.*)/(?P<class_name>)/’,UpdateClassView.UpdateClassView.as_view())
+url(r’^LearingGo/userinfo/teacherdelClass/(?P<campus_name>.*)/(?P<class_name>)/’,TeacherDelClassView.TeacherDelClassView.as_view())
+url(r’^LearingGo/userinfo/addclass/(?P<campus_name>.*)/(?P<class_name>)/’,AddClassView.AddClassView.as_view())
+
+
