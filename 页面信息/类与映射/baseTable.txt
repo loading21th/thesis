@@ -26,7 +26,7 @@ class Userinfo(models.Model):
 
 
 class UStudentinfo(Userinfo):
-    can_update = modles.BooleanField()
+    can_upgrade = modles.BooleanField()
 
 class Uteacherinfo(Userinfo):
     uGo_credential = models.ImageField(upload_to=get_image_path)

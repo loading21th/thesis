@@ -1,0 +1,99 @@
+rtmp {
+    #rtmp 流媒体服务器
+    server {
+            #rtmp服务端口
+            listen 1935;   
+            chunk_size 4096;
+            #推流拉流地址,例如：rtmp:#192.168.15.12:1935/live/{school_name}/{classname}
+            application live {
+                    live on;
+                    record all;
+                    record_path /tmp/live;
+            }
+            #hls协议的直播配置
+            application hls {
+                    live on;
+                    hls on;
+                    #存储直播视频
+                    hls_path /tmp/hls;  
+					hls_nested on;
+            }
+            #直接播放的本地视频地址
+            application play {
+                    play /home/loading_21th/LearningGo/videos;
+        }
+    }
+}
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+    #hls server配置
+    server {
+        #直播流监听端口
+        listen 8081;
+        location /hls {
+            types {
+                application/vnd.apple.mpegurl m3u8;
+            }
+            root /tmp;
+            add_header Cache-Control no-cache;
+        }
+        #hls直播地址
+        location /live {
+            alias   /home/loading_21th/LearningGo/golearnApp;
+            index   play.html;
+        }
+        #推流拉流状态展示
+        location /stat {                                                    
+             rtmp_stat all;
+             rtmp_stat_stylesheet stat.xsl;
+         }
+         location /stat.xsl {
+             root /home/loading_21th/www;
+         }
+        #流媒体控制
+         location /control {
+             rtmp_control all;
+         }
+        location / {
+            alias   /home/loading_21th/www/;
+            index  play.html;
+        }
+    }
+
+    server {
+        #业务逻辑服务器反向代理配置
+        listen       8080;
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+        location /LearingGo {
+            #转发到uWSGI服务器
+            include uwsgi_params;
+            uwsgi_pass 192.168.15.12:9000;  #python_uwsgi服务器ip:port
+        }
+        location /static {
+            alias /home/loading_21th/LearningGo/static/;
+        }
+        location /favicon.ico {
+            root /home/loading_21th/LearningGo/static/favicon.ico;
+        }
+    }
+}
+
+
+[uwsgi]
+#http = 127.0.01:9000
+socket = 192.168.15.12:9000
+chdir = /home/loading_21th/LearningGo 
+module = LearningGo.wsgi
+enable-threads = true
+thunder-lock = true
+ugreen = true
+http-websockets = true
+async = 100
+master = true
+processes = 9
+vacuum = true
