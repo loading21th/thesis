@@ -48,7 +48,7 @@ DelClassView            delete_Students_Classes                                 
 WalletView              update_Money()                                                          1
 BuyUpgradeView          update_can_upgrade()                                                    3
 UpdateinfoView          update_Info()                                                           1
-UpgradeView             delete_Student;add_Teacher()                                            3
+UpgradenfoView             delete_Student;add_Teacher()                                            3
 TeacherView             find_baseinfo(),find_students_classes(),find_campus().find_class        1
 TeacherDelClassView        delete_class,delete_teachers_classes,delete_students_classes            4
 UpdateClassView         update_Class                                                            4

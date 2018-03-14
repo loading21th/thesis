@@ -1,36 +1,224 @@
+
 class HomeworkUpView(View):
-    def get(self,request,school_name,class_name):
-        hlsdic = {'school_name':school_name,'class_name':class_name,'sum':3}
-        return render(request,'index.html',hlsdic);
-    
+    def add_Homework(school_name,class_name,fileobj):
+        '''homework对象的存储路径根据学校名和课程名动态变化'''
+        homeworkfile= Homework(schoolname=school_name,classname=class_name,homework=file_obj)
+        homeworkfile.save()
+
+
     @csrf_exempt
     def post(self,request,school_name,class_name):
-        upload_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),'uploadfile',school_name,class_name)
-        print(upload_path)
+        '''文件上传目录'''
+        upload_fpath = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        upload_path = os.path.join(upload_fpath,'uploadfile',school_name,class_name)
 
-        if not os.path.exists(upload_path):
-            os.makedirs(upload_path)
         if request.FILES:
-            print ('**********add data*********')
+            '''获取文件对象'''
             file_obj = request.FILES.getlist('filename')[0]
-            hh = Homewore_Courseware(schoolname=school_name,classname=class_name,homework=file_obj)
-            hh.save()
-            print ('**********save over*********')
+            add_Homework(school_name,class_name,file_obj):
 
-        hlsdic = {'Courseware_name':os.listdir(upload_path)}
-        response = JsonResponse(hlsdic, safe=False)
+        '''返回存储目录下所有文件名'''
+        result = {'Courseware_name':os.listdir(upload_path)}
+
+        response = JsonResponse(result, safe=False)
         response["Access-Control-Allow-Origin"] = "*"
         response["Access-Control-Allow-Methods"] = "POST, GET, OPTIONS"
         response["Access-Control-Max-Age"] = "1000"
         response["Access-Control-Allow-Headers"] = "*"
         return response
 
-class CoursewareDownView(View):
-    def get(self,request,school_name,class_name,filename):
-        fullpath = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),'uploadfile',school_name,class_name,filename)
-        ffile = open(fullpath,'rb')
-        response = FileResponse(ffile)
-        print(filename)
-        response['Content-Type'] = "application/octet-stream"
-        response['Content-Disposition'] = 'attachment;filename="{0}"'.format(filename)
-        return response 
+class RegisterView(View):
+    '''添加用户，注册默认是学生'''
+    def add_Studentinfo(name,upasswd,uemail,ubirth,usex,uimage,umoney=0,can_upgrade=False):
+        student = BaseTable.Ustudentinfo(name=uname,upasswd=passwd,uemail=email,ubirth=birth,usex=sex,uimage=file_obj)
+        student.save()
+
+    @csrf_exempt
+    def post(self,request):
+        if request.FILES:
+            '''用户头像'''
+            file_obj = request.FILES.getlist('filename')[0]
+            uname = request.POST.get('name')
+            passwd = request.POST.get('passwd')
+            email = request.POST.get('email')
+            birth = request.POST.get('birth')
+            sex = request.POST.get('sex')
+            add_Studentinfo(name,upasswd,uemail,ubirth,usex,uimage)
+            
+        result = {'status':'success'}
+        response = JsonResponse(result, safe=False)
+        response["Access-Control-Allow-Origin"] = "*"
+        response["Access-Control-Allow-Methods"] = "POST, GET, OPTIONS"
+        response["Access-Control-Max-Age"] = "1000"
+        response["Access-Control-Allow-Headers"] = "*"
+        return response
+
+class BuyUpgradeView(View):
+    def get(self,request):
+        name = request.session.get('name')
+        student =  BaseTable.Ustudentinfo.objects.get(name=name)
+        result = {'status':'fail'}
+        '''判断是否有权限升级'''
+        if student.can_upgrade :
+            result['status'] = 'success'
+        response = JsonResponse(result, safe=False)
+        response["Access-Control-Allow-Origin"] = "*"
+        response["Access-Control-Allow-Methods"] = "POST, GET, OPTIONS"
+        response["Access-Control-Max-Age"] = "1000"
+        response["Access-Control-Allow-Headers"] = "*"
+        return response
+    @csrf_exempt
+    def post(self,request):
+        student = BaseTable.Ustudentinfo.objects.get(name=request.session['name'])
+        nowmoney = student.umoney
+        money_update_sum = request.POST.get('money_update_sum')
+        stat = "操作失败，请重试"
+
+        if (request.POST.get('is_add')== "yes"):
+            nowmoney = nowmoney + int(money_update_sum)
+        else:
+            nowmoney = nowmoney - int(money_update_sum)
+
+        if nowmoney < 0:
+            stat = "提款失败，余额不足"
+        elif nowmoney > 10000:
+            stat = "充值资金过多，有风险"
+        else:
+            '''完成支付，设置可以升级的属性'''
+            stat = "success"
+            student.umoney = nowmoney
+            if (request.POST.get('is_add')== "pay_to_sys"):
+                student.can_upgrade  = True
+            student.save()
+        result = {'status':stat}
+        response = JsonResponse(result, safe=False)
+        response["Access-Control-Allow-Origin"] = "*"
+        response["Access-Control-Allow-Methods"] = "POST, GET, OPTIONS"
+        response["Access-Control-Max-Age"] = "1000"
+        response["Access-Control-Allow-Headers"] = "*"
+        return response
+
+
+class UpgradeinfoView(View):
+    def delete_student_by_name(name):
+        student =  BaseTable.Ustudentinfo.objects.get(name=name)
+        student.delete()
+
+    def add_Teacher_from_studentname(name,Go,teach,desc):
+        student =  BaseTable.Ustudentinfo.objects.get(name=name)
+        teacher =
+    BaseTable.Uteacherinfo(name=student.name,upasswd=student.upasswd,uemail=student.uemail,ubirth=student.ubirth,uimage=student.uimage,umoney=student.umoney,usex=student.usex,uGo_credential=Go,uTeach_credential=teach,udescripition=desc,can_createschool=False)
+        teacher.save()
+
+
+    @csrf_exempt
+    def post(self,request):
+        name = request.session.get('name')
+        Go = request.FILES.getlist('uGo_credential')[0]
+        teach = request.FILES.getlist('teach_credential')[0]
+        desc = request.POST.get("descripition")
+
+        '''升级学生用户为教师用户，添加教师数据'''
+        add_Teacher_from_studentname(name,Go,teach,desc)
+
+        '''删除学生数据'''
+        delete_student_by_name(name):
+
+        result = {'status':'success'}
+        response = JsonResponse(result, safe=False)
+        response["Access-Control-Allow-Origin"] = "*"
+        response["Access-Control-Allow-Methods"] = "POST, GET, OPTIONS"
+        response["Access-Control-Max-Age"] = "1000"
+        response["Access-Control-Allow-Headers"] = "*"
+        return response
+
+
+-------------------------
+class BuyCreateClassView(View):
+    def update_can_createclass(campus,stat):
+        campus.can_createclass = stat
+        campus.save()
+
+    def get(self,request,school_name):
+        campus =  BaseTable.Campus.objects.get(name=school_name)
+        result = {'status':'fail'}
+        '''判断是否有开课升级'''
+        if campus.can_createclass :
+            result['status'] = 'success'
+        response = JsonResponse(result, safe=False)
+        response["Access-Control-Allow-Origin"] = "*"
+        response["Access-Control-Allow-Methods"] = "POST, GET, OPTIONS"
+        response["Access-Control-Max-Age"] = "1000"
+        response["Access-Control-Allow-Headers"] = "*"
+        return response
+
+    @csrf_exempt
+    def post(self,request,school_name):
+        teacher = BaseTable.Uteacherinfo.objects.get(name=request.session['name'])
+        campus =  BaseTable.Campus.objects.get(name=school_name)
+        nowmoney = teacher.umoney
+        money_update_sum = request.POST.get('money_update_sum')
+        stat = "操作失败，请重试"
+
+        if (request.POST.get('is_add')== "yes"):
+            nowmoney = nowmoney + int(money_update_sum)
+        else:
+            nowmoney = nowmoney - int(money_update_sum)
+
+        if nowmoney < 0:
+            stat = "提款失败，余额不足"
+        elif nowmoney > 10000:
+            stat = "充值资金过多，有风险"
+        else:
+            '''完成支付，设置可以升级的属性'''
+            stat = "success"
+            teacher.umoney = nowmoney
+            teacher.save()
+            '''向系统支付,并更新状态'''
+            if (request.POST.get('is_add')== "pay_to_sys"):
+                update_can_createclass(campus,True):
+        result = {'status':stat}
+        response = JsonResponse(result, safe=False)
+        response["Access-Control-Allow-Origin"] = "*"
+        response["Access-Control-Allow-Methods"] = "POST, GET, OPTIONS"
+        response["Access-Control-Max-Age"] = "1000"
+        response["Access-Control-Allow-Headers"] = "*"
+        return response
+
+
+class AddClassView(View):
+    def update_can_createclass(campus,stat):
+        campus.can_createclass = stat
+        campus.save()
+
+    def add_class(name,abbr,stage,logo,bio,time,price,campus):
+        rtmp = "rtmp:192.168.15.12:1935/"+campus.abbreviation+"/"+abbreviation
+        class = classroom(name=name,abbreviation=abbr,stage=stage,logo=logo,bio=bio,time=time,price=price,rtmpaddr=rtmp,campus=campus)
+        class.save()
+        return rtmp
+
+
+    @csrf_exempt
+    def post(self,request,school_name):
+        campus =  BaseTable.Campus.objects.get(name=school_name)
+
+        '''添加课程信息'''
+        name = request.POST.get("name")
+        abbr = request.POST.get("abbr")
+        stage = request.POST.get("stage")
+        logo = request.FILES.getlist('logo')[0]
+        bio = request.POST.get("bio")
+        time = request.POST.get("time")
+        price = request.POST.get("price")
+        rtmp = add_class(name,abbr,stage,logo,bio,time,price,campus):
+
+        '''开课次数用完，更新开课权限'''
+        update_can_createclass(campus,False)
+
+        result = {'rtmpaddr':rtmp}
+        response = JsonResponse(result, safe=False)
+        response["Access-Control-Allow-Origin"] = "*"
+        response["Access-Control-Allow-Methods"] = "POST, GET, OPTIONS"
+        response["Access-Control-Max-Age"] = "1000"
+        response["Access-Control-Allow-Headers"] = "*"
+        return response
