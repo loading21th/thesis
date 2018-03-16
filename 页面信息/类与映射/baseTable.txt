@@ -28,7 +28,7 @@ class Userinfo(models.Model):
 class UStudentinfo(Userinfo):
     can_upgrade = modles.BooleanField()
 
-class Uteacherinfo(Userinfo):
+class UTeacherinfo(Userinfo):
     uGo_credential = models.ImageField(upload_to=get_image_path)
     uTeach_credential = models.ImageField(upload_to=get_image_path) 
     udescripition = models.TextField() 
@@ -44,7 +44,7 @@ class campus(models.Model):
     teacher = models.ForeignKey('Uteacherinfo')
     can_createclass = modles.BooleanField() 
 
-class classroom(models.Model):
+class Classroom(models.Model):
     name = models.CharField(max_length=40)
     abbreviation = models.CharField(max_length=10) 
     teacher = models.CharField(max_length=40) 
@@ -56,20 +56,20 @@ class classroom(models.Model):
     rtmpaddr = models.CharField(max_length=40)
     campus = models.ForeignKey('campus')
 
-class students_classes(models.Model):
+class Students_Classes(models.Model):
     student = models.ForeignKey('Userinfo')
     classroom = models.ForeignKey('classroom')
 
 
-class teacher_classes(models.Model):
+class Teacher_Classes(models.Model):
     teacher = models.ForeignKey('Uteacherinfo')
     classroom = models.ForeignKey('classroom')
 
-class homework(models.Model):
+class Homework(models.Model):
     classroom = models.ForeignKey('classroom')
     homework = models.FileField(upload_to=get_upfile_path)
 
-class videos(models.Model):
+class Videos(models.Model):
     stage = models.IntegerField()
     name = models.CharField(max_length=40)
     logo = models.ImageField(upload_to=get_image_path)

@@ -191,15 +191,22 @@ class AddClassView(View):
         campus.can_createclass = stat
         campus.save()
 
-    def add_class(name,abbr,stage,logo,bio,time,price,campus):
+    def add_class(teacher,name,abbr,stage,logo,bio,time,price,campus):
         rtmp = "rtmp:192.168.15.12:1935/"+campus.abbreviation+"/"+abbreviation
         class = classroom(name=name,abbreviation=abbr,stage=stage,logo=logo,bio=bio,time=time,price=price,rtmpaddr=rtmp,campus=campus)
         class.save()
+        add_Teachers_Classer(teacher,class)
         return rtmp
 
+'''教师所开课程拥有免费观看权限'''
+    def add_Teachers_Classer(teacher,class):
+        tea_class = Teachers_Classes(teacher=teacher,classroom=class);
+        tea_class.save()
 
     @csrf_exempt
     def post(self,request,school_name):
+        name = request.session.get('name')
+        teacher =  BaseTable.UTeacherinfo.objects.get(name=name)
         campus =  BaseTable.Campus.objects.get(name=school_name)
 
         '''添加课程信息'''
@@ -210,7 +217,7 @@ class AddClassView(View):
         bio = request.POST.get("bio")
         time = request.POST.get("time")
         price = request.POST.get("price")
-        rtmp = add_class(name,abbr,stage,logo,bio,time,price,campus):
+        rtmp = add_class(teacher,name,abbr,stage,logo,bio,time,price,campus)
 
         '''开课次数用完，更新开课权限'''
         update_can_createclass(campus,False)
