@@ -1,0 +1,139 @@
+
+class WalletView(View):
+    def updateMoney(user,money,is_add):
+        nowmoney = user.umoney
+        stat = "操作失败，请重试"
+
+        if (is_add== "yes"):
+            nowmoney = nowmoney + int(money)
+        else:
+            nowmoney = nowmoney - int(money)
+
+        if nowmoney < 0:
+            stat = "提款失败，余额不足"
+        elif nowmoney > 10000:
+            stat = "充值资金过多，有风险"
+        else:
+            stat = "success"
+            user.umoney = nowmoney
+            user.save()
+        return stat
+        
+    @csrf_exempt
+    def post(self,request):
+
+        """判断用户身份"""
+        users = BaseTable.Uteacherinfo.objects.filter(id=request.session['uid'])
+        if not users.exists():
+            users = BaseTable.Ustudentinfo.objects.filter(id=request.session['uid'])
+
+        if not users.exists():
+            stat = 'fail'
+        else:
+            user = users[0]
+            """充值/提现金额"""
+            money_update_sum = request.POST.get('money_update_sum')
+            """充值或提现"""
+            is_add = request.POST.get('is_add') 
+            stat = updateMoney(user,money_update_sum)
+
+        result = {'status':stat}
+        ...
+        return response
+
+class AddClassView(View):
+    def add_class(name,abbr,stage,bio,time,price,logo,rtmpaddr,campus):
+        classroom = BaseTable.Classroom(name=name,
+                                  abbreviation=abbr,
+                                  stage=stage,
+                                  bio=bio,
+                                  time=time,
+                                  price=price,
+                                  logo=logo,
+                                  rtmpaddr=rtmp,
+                                  campus=campus)
+        classroom.save()
+
+    def update_campus(campus):
+        campus.can_createclass=False
+        campus.save()
+
+    @csrf_exempt
+    def post(self,request):
+        campus = BaseTable.Campus.objects.get(id=request.POST['campusid'])
+        """直播rtmp地址由系统根据学校简称和课堂简称生成"""
+        rtmp="rtmp://192.168.12.105:1935/"+campus.abbreviation+"/"+request.POST.get("abbr")
+        """获取课堂信息"""
+        name=request.POST.get('name')
+        abbreviation=request.POST.get("abbr")
+        stage=request.POST.get("stage")
+        bio=request.POST.get("bio")
+        time=request.POST.get("time")
+        price=request.POST.get("price")
+        logo=request.FILES.getlist("logo")[0],
+
+        add_class(name,abbr,stage,bio,time,price,logo,rtmpaddr,campus)
+
+        """课堂创建成功，学校的开课权限消失，下次开课需重新缴费"""
+        update_campus(campus)
+
+        """教师用户默认加入自己开设的课程"""
+        teacher = BaseTable.Uteacherinfo.objects.get(id=request.session['uid'])
+        teacher_classroom = BaseTable.Teachers_classes(teacher=teacher,classroom=classroom)
+        teacher_classroom.save()
+
+        """系统提示直播地址"""
+        result = {'status':rtmp}
+        ...
+        return response
+
+class HlsRoomView(View):
+    def get(self,request,classroomid):
+        """返回直播地址，JW Player可直接播放"""
+        classroom = BaseTable.Classroom.objects.get(id=classroomid)
+        result = {'rtmp':classroom.rtmpaddr}
+        """返回课堂内已有文件"""
+        homeworks = BaseTable.Homework.objects.filter(classroom=classroom)
+        result = {'homeworks':homeworks}
+        ...
+        return response
+
+    def handleWebsocket(self,request):
+        global messageclient
+        """设定redis订阅发布频道"""
+        messageclient.set_channel(classroom.campus.name+classroom.namet)
+        """多线程监听redis，有新消息通过websocket发到前端页面"""
+        messageclient.startsubscribe(request.websocket)
+        """前端页面发送的消息，发布到redis"""
+        for message in request.websocket:
+            if not message:
+                break
+            messageclient.publishi(message)
+         messageclient.unsubscribe()
+
+
+class DelClassRoomView(View):
+    def delete_class(classroom):
+        """获取参与该课程的教师课程表"""
+        teacher_class = BaseTable.Teachers_classes.objects.filter(classroom=classroom)
+
+        """获取参与该课程的学生课程表"""
+        student_class = BaseTable.Students_classes.objects.filter(classroom=classroom)
+
+        classroom.delete()
+        teacher_class.delete()
+        student_class.delete()
+        return "success"
+
+    def get(self,request,classroomid):
+        """获取该课程"""
+        classroom = BaseTable.Classroom.objects.get(id=classroomid)
+        stat = delete_class(classroom)
+        result = {'status':stat}
+        ...
+        return response
+        
+    
+
+
+
