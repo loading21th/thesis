@@ -1,0 +1,41 @@
+多九公. 欧洲围棋的播种者：奥斯卡·科歇尔特[N]. 围棋报,2011-03-19(015).
+王放. 潜心黑白世界 凝神静静育人[N]. 长春日报,2011-10-27(007)
+Shen K, Si Z, Zhang L. Research and Implement of HTML5 Game Based on WebSocket[M]// Advanced Graphic Communications and Media Technologies. 2017:423-428.
+王利萍. 基于Nginx服务器集群负载均衡技术的研究与改进[D].山东大学,2015.
+丁振凡.基于WebSocket的在线围棋对弈软件设计[J].吉首大学学报(自然科学版),2017,38(04):27-33.
+张印. 基于RTMP 的流媒体系统的设计实现[D].电子科技大学,2015.
+冯勋. 基于RTMP协议的轻量级视频服务器的设计与实现[D].电子科技大学,2015.
+Lei X, Jiang X, Wang C. Design and implementation of streaming media processing software based on RTMP[C]// International Congress on Image and Signal Processing. IEEE, 2013:192-196
+马丛. 基于流媒体的音乐教学系统的设计与实现[D].电子科技大学,2012.
+Huang T, Li Z, Zhang J. Design and implementation of living streaming system based on multi-service nodes collaboration[C]// Advanced Information Technology, Electronic and Automation Control Conference. IEEE, 2017:1635-16
+Li S, Si Z. Information Publishing System Based on the Framework of Django[M]// Advanced Graphic Communications and Media Technologies. 2017.
+缪刚,王萍,庄亚军,夏伟.基于流媒体技术的体育竞赛视频发布系统设计[J].微处理机,2016,37(05):84-88.
+李竹青. 西安地区围棋培训市场现状与发展研究[D].西安体育学院,2016.
+梁仕昌. 在线流媒体视频播放系统设计及实现[D].华南理工大学,2016.
+程承.基于RTMP协议的网络播出平台建设[J].科技创新与应用,2016(17):102.
+李波. 某互动教学直播系统的设计与实现[D].中国科学院大学(中国科学院工程管理与信息技术学院),2017.
+LI Xin. Design of a Real Time Mobile Home Monitoring System[A]. 2013年中国信息通信研究新进展论文集[C].:,2014:5.
+ 
+孙业宝. 基于RTMP的高清流媒体直播点播封装技术的研究与实现[D].北京工业大学,2015.
+胡廷楣, 刘知青. 对面千里:人工智能和围棋文化[M]. 上海文化出版社, 2016.
+陈林. 基于Django的英语在线视频教学系统的设计与实现[D].厦门大学,2014.
+JEFF FORCIER. DJANGO WEB开发指南[M]. 机械工业出版社, 2009.
+Gupta P, Zeldovich N, Madden S. A trigger-based middleware cache for ORMs[J]. Lecture Notes in Computer Science, 2011, 7049:329-349.
+Bang Jun Cui. The Cross-Browser Multi-Platform Real Time Online Monitoring System Based on WebSocket[J]. Advanced Materials Research,2014,3470(1030).
+Chang Q, Yang Z, Song Y. A Scalable Mobile Live Video Streaming System Based on RTMP and HTTP Transmissions[M]// Advanced Research on Computer Science and Information Engineering. Springer Berlin Heidelberg, 2011:113-118.
+Acetozi J. Sending a User’s Public Messages over WebSocket[J]. 2017.
+Li Z. Design and Implementation of the Software Testing Management System Based on Django[J]. Applied Mechanics & Materials, 2014, 525:707-710.
+Liao Y, Wang Z, Luo Y. The design and implementation of a WebRTC based online video teaching system[C]// Advanced Information Management, Communicates, Electronic and Automation Control Conference. IEEE, 2017:137-140.
+向华. 流媒体服务系统核心技术的研究与实现[D].西安电子科技大学,2014.
+葛会忠. 围棋改革已经在路上[N]. 中国体育报,2018-01-03(008).
+马勇.开展围棋学习活动 提高数学思维品质[J].甘肃教育,2018(03):52.
+2017年运动训练、武术与民族传统专业招生新政出台[J].考试与招生,2017(01):7-9.
+王艳.Android系统中RTMP流媒体直播的设计与实现[J].电视技术,2017,41(01):64-67.
+孙盼,康维新.基于DirectShow RTMP协议的视频采集传输系统的设计与实现[J].应用科技,2015,42(06):40-44+76.
+雷霄骅,姜秀华,王彩虹.基于RTMP协议的流媒体技术的原理与应用[J].中国传媒大学学报(自然科学版),2013,20(06):59-64.
+姜浩然,徐林.基于RTMP的流媒体服务器的研究[J].计算机与数字工程,2011,39(10):104-108.
+陈木朝,姚超.RTMP和RTMFP在视频播放系统中的应用比较[J].电脑编程技巧与维护,2013(10):82+87.
+杨建业,耿建平.基于HTML5的实时Web数据监测系统[J].桂林电子科技大学学报,2015,35(02):136-141.
+张艺.基于WebSocket的即时通信系统研究与实现[J].软件,2015,36(03):89-94.
+陆晨,冯向阳,苏厚勤.HTML5 WebSocket握手协议的研究与实现[J].计算机应用与软件,2015,32(01):128-131+178.
+张玲,张翠肖.WebSocket服务器推送技术的研究[J].河北省科学院学报,2014,31(02):49-53.
